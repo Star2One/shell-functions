@@ -1,0 +1,36 @@
+#!/bin/bash
+
+
+
+
+###log functions###
+###Add by chris.hill###
+
+log()
+{
+    logger -id "$*"
+}
+
+logf()
+{
+    echo >> $1 `date "+%F %T"` "$2"
+
+}
+
+test()
+{
+    log "redis good"
+    logf /tmp/test.log "ok"
+}
+
+
+
+
+###make test###
+if [ $# -ne 0 ] && [ $1 == "test" ]
+then
+    test
+fi
+
+
+
